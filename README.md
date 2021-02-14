@@ -3,7 +3,7 @@
 In this project, will be working with a real-world dataset, extracted from Kaggle, on San Francisco crime incidents, and provide statistical analyses of the data using Apache Spark Structured Streaming by creating a Kafka server to produce data, and ingest data through Spark Structured Streaming.
 
 # Development Environment
-To develop your project locally, will need to set up the environment properly as described below:
+To develop your project locally, need to set up the environment properly as described below:
 * Spark 2.4.3
 * Scala 2.11.x
 * Java 1.8.x
