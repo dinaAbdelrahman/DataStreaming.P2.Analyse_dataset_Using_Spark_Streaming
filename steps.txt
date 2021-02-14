@@ -1,0 +1,26 @@
+##Run zookeeper by either way
+/usr/bin/zookeeper-server-start config/zookeeper.properties
+/usr/bin/zookeeper-server-start /etc/kafka/zookeeper.properties
+
+##Run Kafka server  by either way
+/usr/bin/kafka-server-start config/server.properties
+/usr/bin/kafka-server-start /etc/kafka/kafka-tools.properties
+
+##Install packages
+./start.sh
+
+##Launch server and stream the topic
+python producer_server.py
+python kafka_server.py
+
+##test consumer from CMD
+/usr/bin/kafka-console-consumer --bootstrap-server localhost:9092 --topic sf-streamed-data --from-beginning
+
+##test consumer from python program module
+conda install -c conda-forge python-confluent-kafka
+python consumer_server.py
+
+
+
+#submit spark job
+spark-submit --packages org.apache.spark:spark-sql-kafka-0-10_2.11:2.3.4 --master local[*] data_stream.py
